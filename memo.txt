@@ -1,0 +1,48 @@
+Spark - SinatraライクなJavaのフレームワーク？
+
+🍺Qiita
+Spark Framework使い方メモ
+http://qiita.com/opengl-8080/items/801b32a8d44089fa1c04
+
+・組み込みサーバであるjettyを使っているとのこと。
+
+🍺ソース
+
+
+🍺起動
+コマンドライン：mvn exec:java -q
+NetBeans：プロジェクトを右クリックして"実行"
+
+🍺停止
+Spark.stop()を実行する。
+そのため、"/shutdown"というURLをインタフェースにして、
+stop()を実行するようにします。
+
+🍺jarの作成
+コマンドライン：mvn package
+NetBeans：pom.xmlを右クリックしてMavenタスクを実行で、ゴールで、packageを指定してOKをクリック
+
+🍺pom.xml from Maven Central Repository
+<dependency>
+    <groupId>com.sparkjava</groupId>
+    <artifactId>spark-core</artifactId>
+    <version>2.1</version>
+</dependency>
+
+
+🍺SparkTest, main maven pom.xml
+
+ <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>com.betahikaru.xxxxxx</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
